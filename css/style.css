@@ -1,0 +1,88 @@
+.pics {
+	float:left;
+
+	width:50%;
+}
+
+.top {
+	height:250px;
+}
+
+.bottom {
+	height:250px;
+
+}
+
+.pics-right {
+	float:left;
+	height:500px;
+	margin: 0 15px 0 0;
+	width:50%;	
+}
+
+.one-left {
+	background-image: url(../images/home-one-bg.jpg);
+    background-size: cover;
+padding:20px;
+    color:#fff;
+/*
+
+    display: table-cell;
+    float: none;
+    vertical-align: middle;
+    padding-left: 0;
+    padding-right: 0;
+*/    
+}
+
+.video-text::before {
+	content: url(../images/home-video.png);
+    padding-right: 1em;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.video-youtube {
+	padding-top:18px;
+}
+
+.background-blue {
+	background-color:#196E93;
+	color:#fff;
+}
+
+.div-top, .div-bottom {
+	height: 417px;
+}
+
+
+/*.header-video {
+    position: relative;
+    height: 100vh;
+    background: #eee;
+}
+
+.intro {
+    background: rgba(0, 0, 0, 0.65);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    color: white;
+    display: block;
+    font-weight: 300;
+    margin: 80px auto 130px;
+    max-width: 825px;
+    padding: 30px 50px 25px;
+}
+}
+
+*/
+
+
+
+
+
+
+
+
