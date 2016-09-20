@@ -24,15 +24,16 @@
 
 
 <!-- HEADER VIDEO -->
-<div class="header-video">
-    <img src="img/masthead.jpg"
+  <div class="header-video">
+    <img src="images/col1.jpg"
          class="header-video__media"
          data-video-URL="https://www.youtube.com/embed/Scxs7L0vhZ4"
+         data-teaser="video/teaser-video"
          data-video-width="560"
          data-video-height="315">
     <a href="https://www.youtube.com/embed/Scxs7L0vhZ4" class="header-video__play-trigger" id="header-video__play-trigger">Play video</a>
     <button type="button" class="header-video__close-trigger" id="header-video__close-trigger">Close video</button>
-</div>
+  </div>
 <!-- <header class="header-video">
 	<div class="container">
 		<div class="intro">
@@ -140,6 +141,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
 <script src="app.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.header-video').each(function(i, elem) {
+        headerVideo = new HeaderVideo({
+          element: elem,
+          media: '.header-video__media',
+          playTrigger: '.header-video__play-trigger',
+          closeTrigger: '.header-video__close-trigger'
+        });
+    });
+  });
+</script>
 
   </body>
 </html>
