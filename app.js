@@ -1,65 +1,49 @@
-
-
-// This comment should be on another branchh
-
-
-
-
-
+'use strict';
 
 var HeaderVideo = function(settings) {
-	if (settings.element.length ===0) {
-		return;
-	}
-	this.init(settings);
-}
-
-HeaderVideo.prototype.init = function(settings) {
-	this.$element = $(settings.element);
-	this.settings = settings;
-	this.videoDetails = this.getVideoDetails();
-}
-
-$('.header-video').each(function(i, elem) {
-	headerVideo = new HeaderVideo({
-		element: elem,
-		media: '.header-video__media',
-		playTrigger: '.video__play-trigger',
-		closeTrigger: '.video__close-trigger'
-	});
-});
-
-HeaderVideo.prototype.getVideoDetails = function() {
-	var mediaElement = $(this.settings.media);
-
-	return {
-		videoURL: mediaElement.attr('data-video-URL')
-		teaser: mediaElement.attr('data-teaser'),
-		videoHeight: mediaElement.attr('data-video-height'),
-        videoWidth: mediaElement.attr('data-video-width')	
-    };
+    if (settings.element.length === 0) {
+        return;
+    }
+    this.init(settings);
 };
 
-HeaderVideo.prototype.setFluidContainer = function () {
-	var element = this.$element;
-	element.data('aspectRation', this.videoDetails.videoHeight / this.videoDetails.videoWidth);
+HeaderVideo.prototype.init = function(settings) {
+    this.$element = $(settings.element);
+    this.settings = settings;
+    this.videoDetails = this.getVideoDetails();
 
-	$(window).resize(function() {
-		var windowWidth = $(window).width();
-		var windowHeight = $(window).height();
+    $(this.settings.closeTrigger).hide();
+    this.setFluidContainer();
+    this.bindUIActions();
 
-		element.width(Math.ceil(windowWidth));
-		element.height(Math.ceil(windowWidth * element.data('aspectRation')));
+    if(this.videoDetails.teaser && Modernizr.video && !Modernizr.touch) {
+        this.appendTeaserVideo();
+    }
+};
 
-		if(windowHeight < elementHeight()) {
-			element.width(Math.ceil(windowWidth));
-			element.height(Math.ceil(windowHeight));
-		}
-	}).trigger('resize');
+HeaderVideo.prototype.bindUIActions = function() {
+    var that = this;
+    $(this.settings.playTrigger).on('click', function(e) {
+        e.preventDefault();
+        that.appendIframe();
+    });
+    $(this.settings.closeTrigger).on('click', function(e){
+        e.preventDefault();
+        that.removeIframe();
+    });
+};
 
 HeaderVideo.prototype.appendIframe = function() {
-    var html = '<iframe id="header-video__video-element" src="'+this.videoDetails.videoURL+'?rel=0&hd=1&autohide=1&showinfo=0&autoplay=1&enablejsapi=1&origin=*" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    var html = '<iframe id="header-video__video-element" src="'+this.videoDetails.videoURL+'?rel=0&amp;hd=1&autohide=1&showinfo=0&autoplay=1&enablejsapi=1&origin=*" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    $(this.settings.playTrigger).fadeOut();
+    $(this.settings.closeTrigger).fadeIn();
     this.$element.append(html);
+};
+
+HeaderVideo.prototype.removeIframe = function() {
+    $(this.settings.playTrigger).fadeIn();
+    $(this.settings.closeTrigger).fadeOut();
+    this.$element.find('#header-video__video-element').remove();
 };
 
 HeaderVideo.prototype.appendTeaserVideo = function() {
@@ -68,4 +52,31 @@ HeaderVideo.prototype.appendTeaserVideo = function() {
     this.$element.append(html);
 };
 
-}
+HeaderVideo.prototype.setFluidContainer = function() {
+    var element = this.$element;
+    element.data('aspectRatio', this.videoDetails.videoHeight / this.videoDetails.videoWidth);
+
+    $(window).resize(function() {
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+
+        element.width(Math.ceil(windowWidth));
+        element.height(Math.ceil(windowWidth * element.data('aspectRatio'))); //Set the videos aspect ratio, see https://css-tricks.com/fluid-width-youtube-videos/
+
+        if(windowHeight < element.height()) {
+            element.width(Math.ceil(windowWidth));
+            element.height(Math.ceil(windowHeight));
+        }
+    }).trigger('resize');
+};
+
+HeaderVideo.prototype.getVideoDetails = function() {
+    var mediaElement = $(this.settings.media);
+
+    return {
+        videoURL: mediaElement.attr('data-video-URL'),
+        teaser: mediaElement.attr('data-teaser'),
+        videoHeight: mediaElement.attr('data-video-height'),
+        videoWidth: mediaElement.attr('data-video-width')
+    };
+};
