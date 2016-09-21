@@ -20,93 +20,91 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <style>
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #1bc2a2;
+}
+
+ul li {
+  display: block;
+  position: relative;
+  float: left;
+  background: #1bc2a2;
+}
+
+li ul { display: none; }
+
+ul li a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+}
+
+ul li a:hover { background: #2c3e50; }
+
+li:hover > ul {
+  display: block;
+  position: absolute;
+}
+
+li:hover li { float: none; }
+
+li:hover a { background: #1bc2a2; }
+
+li:hover li a:hover { background: #2c3e50; }
+
+.main-navigation li ul li { border-top: 0; }
+
+ul ul ul {
+  left: 100%;
+  top: 0;
+}
+
+  </style>
   <body>
 
-<!-- Navigation -->
-<nav>
-	<div class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<ul class="pull-right">
-				<li><a href="about.html">About</a></li>
-					<ul class="sub-menu">
-						<li><a href="why-castlewood.html">Why Castlewood</a></li>
-					</ul>
-				<li><a href="admissions.html">Admissions</a></li>
-					<ul class="sub-menu">
-						<li><a href="#">For Client</a></li>
-						<li><a href="#">For Family</a></li>
-						<li><a href="#">For Professional</a></li>
-						<ul class="sub-menu">
-							<li><a href="#">Commitment to Our Refferal Partners</a></li>
-						</ul>
-						<li><a href="#">Admission Forms</a></li>
-						<li><a href="#">Intervention</a></li>
-					</ul>
-				<li><a href="#">What We Treat</a></li>		
-				<li><a href="#">Therapy</a></li>		
-				<li><a href="#">Treatment Programs</a></li>	
-				<li><a href="#">Locations</a></li>	
-				<li><a href="#">Resources</a></li>	
-				<li><a href="#">Contact Us</a></li>	
-				<li><a href="#">Blog</a></li>		
-	</div>
-</nav>
+<ul class="main-navigation clearfix">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Front End Design</a>
+    <ul>
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a>
+        <ul>
+          <li><a href="#">Resets</a></li>
+          <li><a href="#">Grids</a></li>
+          <li><a href="#">Frameworks</a></li>
+        </ul>
+      </li>
+      <li><a href="#">JavaScript</a>
+        <ul>
+          <li><a href="#">Ajax</a></li>
+          <li><a href="#">jQuery</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#">WordPress Development</a>
+    <ul>
+      <li><a href="#">Themes</a></li>
+      <li><a href="#">Plugins</a></li>
+      <li><a href="#">Custom Post Types</a>
+        <ul>
+          <li><a href="#">Portfolios</a></li>
+          <li><a href="#">Testimonials</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Options</a></li>
+    </ul>
+  </li>
+  <li><a href="#">About Us</a></li>
+</ul>
 
-<!-- Navigation End -->
-<!-- HEADER VIDEO -->
-   <div class="header-video">
-    <img src="images/col1.jpg"
-         class="header-video__media"
-         data-video-URL="https://www.youtube.com/embed/Scxs7L0vhZ4"
-         data-teaser="video/main-video"
-         data-video-width="560"
-         data-video-height="315">
-    <a href="https://www.youtube.com/embed/Scxs7L0vhZ4" class="header-video__play-trigger" id="header-video__play-trigger">Play video</a>
-    <button type="button" class="header-video__close-trigger" id="header-video__close-trigger">Close video</button>
-  </div>
-<!-- <header class="header-video">
-	<div class="container">
-		<div class="intro">
-			<span class="title">The Castlewood Difference</span>
-			<div class="text">See why those seeking recovery from their eating disorders find hope at Castlewood Treatment Center.</div>
-			<div class="call">Call Today - 714-392-4235</div>
-	</div>
-</header> -->
-<!-- /HEADER VIDEO -->
-<!-- CASTLEWOOD DIFFERENCE -->
-	<div class="container">
-		<div class="col-md-6 one-left">
-			<h4 class="video-text p-t-2">What is the Castlewood Difference?</h4>
-			<div class="video-youtube">
-				<iframe width="497" height="280" src="https://www.youtube.com/embed/XsYhAdXN9Hk" frameborder="0" allowfullscreen></iframe>
-			</div>
-			<h4 class="video-text p-t-3">What is the Castlewood Mission?</h4>
-			<div class="video-youtube">
-				<iframe width="497" height="280" src="https://www.youtube.com/embed/XsYhAdXN9Hk" frameborder="0" allowfullscreen></iframe>
-			</div>
-		</div>
-		<div class="col-md-6 background-blue div-top p-a-0">
-			<div class="col-md-6">
-				<h5 class="text-xs-center p-t-3 m-b-2">Castlewood's Summer Refocus Program</h5>
-				<p>Come rededicate yourself to recovery—or dedicate yourself to it for the first time!—and get the support you need to make real, healthy changes in your life with Castlewood Treatment Center's Summer Refocus Program!</p>
-				<div class="text-xs-center"><button type="button" class="btn btn-outline-secondary">Read More</button></div>			
-				</div>
-				<div class="col-md-6 p-a-0" style="background-image:url(images/col1.jpg); background-size: cover; height: 100%;">
-				
-			</div>
-		</div>		
-		<div class="col-md-6 background-blue div-bottom p-a-0">
-			<div class="col-md-6" style="background-image:url(images/col-2.jpg); background-size: cover; height: 100%;">
-				
-			</div>
-			<div class="col-md-6">
-				<h5 class="text-xs-center p-t-3 m-b-2">What Our Alumni Say About Castlewood</h5>
-				<p>"After being here I finally believe that long-term recovery from my eating disorder and trauma is possible! Thank you to everyone at Castlewood. It is a special place that will always hold a special place in my heart." 
-				- A. Smith - Castlewood Alumni</p>
-				<div class="text-xs-center"><button type="button" class="btn btn-outline-secondary">Read More</button></div>
-			</div>
-		</div>			
-	</div>
+
 <!-- /CASTLEWOOD DIFFERENCE -->
 <!-- MAIN CONTENT AREA -->
 
@@ -165,29 +163,6 @@
 
 <p class="text-xs-center">Copyright © 2013-2016 Castlewood | All Rights Reserved | <a href="http://aguerodesigns.com">Aguero Designs</a></p>
 
-<!-- /FOOTER -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="app.js"></script>
-
-
-<script>
-  $(document).ready(function() {
-    $('.header-video').each(function(i, elem) {
-        headerVideo = new HeaderVideo({
-          element: elem,
-          media: '.header-video__media',
-          playTrigger: '.header-video__play-trigger',
-          closeTrigger: '.header-video__close-trigger'
-        });
-    });
-  });
-</script>
 
   </body>
 </html>
